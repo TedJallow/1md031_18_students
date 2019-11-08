@@ -1,9 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>Page title shown in window title</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main> 
+            <h1> Welcome to BurgerHeaven Online </h1>
+            
+            <section id="section1"> 
+                <h2> Select burger</h2>
+
+                <p> This is where you make your burger selection</p>
+
+
+                <table cellspacing="50"> 
+                    <thead>
+                        <tr>
+                            <th>The Flaming Burger</th>
+                            <th>Halloumi Burger</th>
+                            <th>Green Burger</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ingredients">
+                            <td><img src="/img/flamingburger.jpg" alt="A Flaming Burger" title="Flaming Burger" width="200" height="200">
+
+                            <ul>
+                                <li> Fire</li>
+                                <li> Cheese</li>
+                                <li> <span id="glutenlactose"> Contains gluten</span> </li>
+                                <li> <span id="glutenlactose"> Contains lactose</span> </li>
+                            </ul> </td>
+
+                            <td><img src="/img/halloumiburger.jpg" alt="Halloumi Burger" title="Halloumi Burger" width="200" height="200">
+
+                            <ul>
+                                <li> Halloumi</li>
+                                <li> Cheese</li>
+                                <li> <span id="glutenlactose"> Contains gluten</span> </li>
+                                <li> <span id="glutenlactose"> Contains lactose</span> </li>
+                            </ul> </td>
+
+                            <td><img src="/img/greenburger.jpg" title="Gluten and lactos free" title="Gluten and lactos free Burger" width="200" height="200">
+                            <ul>
+                                <li> Gluten free</li>
+                                <li> Lactos free</li>
+                                <li> Vegetarian</li>
+                                <li> Green</li>
+                            </ul> </td>
+                        </tr>
+                    </tbody>
+                </table>  
+          </section>
+            
+            
+            <section id="section2"> 
+                <h2> Customer information</h2>
+
+
+                <p> This is where you provide necessary information</p>
+
+                <h3> Delivery information</h3>
+
+                <p>
+                    <label for="fullname">Full name</label><br>
+                    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and last name">
+                </p>
+
+                <p>
+                    <label for="email">E-mail</label><br>
+                    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                </p>
+
+                 <p>
+                    <label for="street">Street</label><br>
+                    <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                </p>
+
+                <p>
+                    <label for="house">House</label><br>
+                    <input type="number" id="street" name="st" required="required" placeholder="House number">
+                </p>
+
+
+                <p>
+                    <label for="payment">Payment options</label><br>
+                    <select id="payment" name="payment">
+                        <option>Swish</option>
+                        <option>Credit card</option>
+                        <option>Paypal</option>
+                        <option>Prepaid card</option>
+                    </select>
+                </p>
+
+                <input type="radio" name="gender" value="male"> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other<br>
+                <input type="radio" name="gender" value="undisclosed" checked="checked"> Undisclosed<br><br>
+
+
+                <button type="submit"><img src="/img/order.png" height="40" width="50"> Order</button>
+             </section>   
+        
+            
+            
+            
+        </main>
+
     </body>
 </html>
