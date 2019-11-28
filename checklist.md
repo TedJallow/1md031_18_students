@@ -36,8 +36,8 @@ Create a style.css file which contains:
 - [x] Change the cursor when hovering over the order button
 - [x] Adds margins to the sections and the order button
 - [x] Add a border to the two sections
-- [ ] Create a header that palces an image behind the headline
-- [ ] Use a grid layout instead of tables for the burger selection section
+- [X] Create a header that palces an image behind the headline
+- [X] Use a grid layout instead of tables for the burger selection section
 
 
 ## 04 JavaScript

@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Page title shown in window title</title>
+        <title>BurgerHeaven Online</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/js_script.js"></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/vue_script.js"></script>
     </head>
     <body>
         <main> 
-            <h1> Welcome to BurgerHeaven Online </h1>
+            <header id="header">
+                <h1 id=headline> Welcome to BurgerHeaven Online </h1>
+                <img src="/img/header.jpg" id="headerimage" alt="Burger header">
+            </header>
+           
             
             <section id="section1"> 
                 <h2> Select burger</h2>
 
                 <p> This is where you make your burger selection</p>
 
-
-                <table cellspacing="50"> 
-                    <thead>
-                        <tr>
-                            <th>The Flaming Burger</th>
-                            <th>Halloumi Burger</th>
-                            <th>Green Burger</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="ingredients">
-                            <td><img src="/img/flamingburger.jpg" alt="A Flaming Burger" title="Flaming Burger" width="200" height="200">
-
-                            <ul>
-                                <li> Fire</li>
-                                <li> Cheese</li>
-                                <li> <span id="glutenlactose"> Contains gluten</span> </li>
-                                <li> <span id="glutenlactose"> Contains lactose</span> </li>
-                            </ul> </td>
-
-                            <td><img src="/img/halloumiburger.jpg" alt="Halloumi Burger" title="Halloumi Burger" width="200" height="200">
-
-                            <ul>
-                                <li> Halloumi</li>
-                                <li> Cheese</li>
-                                <li> <span id="glutenlactose"> Contains gluten</span> </li>
-                                <li> <span id="glutenlactose"> Contains lactose</span> </li>
-                            </ul> </td>
-
-                            <td><img src="/img/greenburger.jpg" title="Gluten and lactos free" title="Gluten and lactos free Burger" width="200" height="200">
-                            <ul>
-                                <li> Gluten free</li>
-                                <li> Lactos free</li>
-                                <li> Vegetarian</li>
-                                <li> Green</li>
-                            </ul> </td>
-                        </tr>
-                    </tbody>
-                </table>  
+                
+                
+                <div class="burgers">
+                   <div class="The Flaming Burger"> <h3> The Flaming Burger </h3>
+                        <img src="/img/flamingburger.jpg" alt="A Flaming Burger" title="Flaming Burger" width="200" height="200">
+                        <ul class="ingredients">
+                            <li> Fire</li>
+                            <li> Cheese</li>
+                            <li> <span id="glutenlactose"> Contains gluten</span> </li>
+                            <li> <span id="glutenlactose"> Contains lactose</span> </li>
+                       </ul>
+                    </div>
+                   <div class="Halloumi Burger"><h3> Halloumi Burger </h3>
+                        <img src="/img/halloumiburger.jpg" alt="Halloumi Burger" title="Halloumi Burger" width="200" height="200">
+                        <ul class="ingredients">
+                            <li> Halloumi</li>
+                            <li> Cheese</li>
+                            <li> <span id="glutenlactose"> Contains gluten</span> </li>
+                            <li> <span id="glutenlactose"> Contains lactose</span> </li>
+                        </ul>
+                    </div>
+                   <div class="Green Burger"> <h3> Green Burger </h3>
+                        <img src="/img/greenburger.jpg" title="Gluten and lactos free" title="Gluten and lactos free Burger" width="200" height="200">
+                        <ul class="ingredients">
+                            <li> Gluten free</li>
+                            <li> Lactos free</li>
+                            <li> Vegetarian</li>
+                            <li> Green</li>
+                        </ul>
+                    </div>
+                 </div>
           </section>
             
             
@@ -100,9 +99,9 @@
                 <input type="radio" name="gender" value="other"> Other<br>
                 <input type="radio" name="gender" value="undisclosed" checked="checked"> Undisclosed<br><br>
 
-
-                <button type="submit"><img src="/img/order.png" height="40" width="50"> Order</button>
              </section>   
+            
+            <button type="submit"><img src="/img/order.png" height="40" width="50"> Order</button>
         
             
             
