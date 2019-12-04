@@ -1,114 +1,111 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <title>BurgerHeaven Online</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="js/js_script.js"></script>
-        <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/vue_script.js"></script>
-    </head>
-    <body>
-        <main> 
-            <header id="header">
-                <h1 id=headline> Welcome to BurgerHeaven Online </h1>
-                <img src="/img/header.jpg" id="headerimage" alt="Burger header">
-            </header>
-           
-            
-            <section id="section1"> 
-                <h2> Select burger</h2>
 
-                <p> This is where you make your burger selection</p>
-                
-                <div id="burgerPlace"> <h1> Välj en burgare</h1></div>
-
-                
-                
-                <div class="burgers">
-                   <div class="The Flaming Burger"> <h3> The Flaming Burger </h3>
-                        <img src="/img/flamingburger.jpg" alt="A Flaming Burger" title="Flaming Burger" width="200" height="200">
-                        <ul class="ingredients">
-                            <li> Fire</li>
-                            <li> Cheese</li>
-                            <li> <span id="glutenlactose"> Contains gluten</span> </li>
-                            <li> <span id="glutenlactose"> Contains lactose</span> </li>
-                       </ul>
-                    </div>
-                   <div class="Halloumi Burger"><h3> Halloumi Burger </h3>
-                        <img src="/img/halloumiburger.jpg" alt="Halloumi Burger" title="Halloumi Burger" width="200" height="200">
-                        <ul class="ingredients">
-                            <li> Halloumi</li>
-                            <li> Cheese</li>
-                            <li> <span id="glutenlactose"> Contains gluten</span> </li>
-                            <li> <span id="glutenlactose"> Contains lactose</span> </li>
-                        </ul>
-                    </div>
-                   <div class="Green Burger"> <h3> Green Burger </h3>
-                        <img src="/img/greenburger.jpg" title="Gluten and lactos free" title="Gluten and lactos free Burger" width="200" height="200">
-                        <ul class="ingredients">
-                            <li> Gluten free</li>
-                            <li> Lactos free</li>
-                            <li> Vegetarian</li>
-                            <li> Green</li>
-                        </ul>
-                    </div>
-                 </div>
-          </section>
-            
-            
-            <section id="section2"> 
-                <h2> Customer information</h2>
+  <head>
+    <title>Burgers Paradise</title>
+    <meta charset="utf-8" />
+    <link rel="resetsheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script src="/vue/vue.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    <link rel="stylesheet" href="css/deli-very.css">
 
 
-                <p> This is where you provide necessary information</p>
+  </head>
 
-                <h3> Delivery information</h3>
+  <body>
+    <header id="header">
+      <h1 id="headline">BurgerHeaven Online</h1>
+      <img id="headerimage" src="img/header.jpg">
+    </header>
 
-                <p>
-                    <label for="fullname">Full name</label><br>
-                    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and last name">
-                </p>
+    <main id='myID'>
+      <div class="wrapper">
+        <div v-for="burger in burgers" class="burgerelement">
+          {{burger.name}}
+          <img v-bind:src='burger.burgerImage'>
+          <ul>
+            <li> kCal: {{burger.kCal}} </li>
+            <li v-if="burger.lactose == true">
+              Contains Lactose
+            </li>
+            <li v-if="burger.gluten == true">
+              Contains Gluten </li>
+            <br>
+            Add burger to order
+            <input type="checkbox" id="checkbox" v-model="choice" v-bind:value="burger.name">
+          </ul>
+        </div>
+      </div>
 
-                <p>
-                    <label for="email">E-mail</label><br>
-                    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-                </p>
+      <section id="customer">
+        <h2>Customer information</h2>
+        <h4>Enter your details</h4>
+        <p>
+          <label for="fullname">Full name:</label><br>
+          <input type="text" id="fullname" name="name" v-model="fullname" placeholder="Full Name">
+        </p>
+        <p>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" v-model="email" placeholder="Email">
+        </p>
 
-                 <p>
-                    <label for="street">Street</label><br>
-                    <input type="text" id="street" name="st" required="required" placeholder="Street name">
-                </p>
+        <p>Select gender:</p>
+        <input type="radio" name="gender" v-model="gender" value="female"> Female<br>
+        <input type="radio" name="gender" v-model="gender" value="male"> Male<br>
+        <input type="radio" name="gender" v-model="gender" value="non-binary"> Non-binary<br>
+        <input type="radio" name="gender" v-model="gender" value="undisclosed"> Undisclosed<br>
+        <p>
+          <label for="payment">Choose your payment option:</label><br>
+          <select id="payment" name="rcp" v-model="payment">
+            <option disabled value="">Credit card</option>
+            <option>Swish</option>
+            <option>Paypal</option>
+            <option>Prepaid card</option>
+          </select>
+        </p>
 
-                <p>
-                    <label for="house">House</label><br>
-                    <input type="number" id="street" name="st" required="required" placeholder="House number">
-                </p>
 
 
-                <p>
-                    <label for="payment">Payment options</label><br>
-                    <select id="payment" name="payment">
-                        <option>Swish</option>
-                        <option>Credit card</option>
-                        <option>Paypal</option>
-                        <option>Prepaid card</option>
-                    </select>
-                </p>
 
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <input type="radio" name="gender" value="other"> Other<br>
-                <input type="radio" name="gender" value="undisclosed" checked="checked"> Undisclosed<br><br>
 
-             </section>   
-            
-            <button type="submit"><img src="/img/order.png" height="40" width="50"> Order</button>
-        
-            
-            
-            
-        </main>
+        <h1> Choose your destination on the map for delivery! </h1>
+        <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+        <div class="view-box">
+          <div id="dots" v-on:click="showOrder">
+            <div v-bind:style="{ left: display.x + 'px', top: display.y + 'px'}">
+              Deliver
+            </div>
+          </div>
+        </div>
 
-    </body>
+        <div id="orderButton">
+          <div class="orderedItems" v-bind="orderlist">
+
+          </div>
+          <button v-on:click="addOrder"><img src="/img/order.png" width="100">
+            Order!
+          </button>
+        </div>
+      </section>
+      <section id='checkout'>
+        <div id="pressedbuttonID">
+          <h3>Your order</h3>
+          <div v-for="burger in choice">{{burger}}</div>
+          <br>
+          <h3>Customer information</h3>
+          Name: {{fullname}} <br>
+          E-mail: {{email}} <br>
+          Gender: {{gender}} <br>
+          Payment method: {{payment}}
+        </div>
+
+
+      </section>
+    </main>
+  </body>
+
 </html>
